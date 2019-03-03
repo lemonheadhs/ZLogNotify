@@ -1,0 +1,4 @@
+PartitionKey,RowKey,Timestamp,AuthzCode,AuthzCode@type,CodeExpired,CodeExpired@type,ReplyReceivedAt,ReplyReceivedAt@type,SuccessAuthorized,SuccessAuthorized@type,Error,Error@type
+Attempt,stateString,2019-02-27T07:39:11.957Z,theCode,Edm.String,false,Edm.Boolean,2019-02-27T07:36:13.030Z,Edm.String,true,Edm.Boolean,,
+Attempt,stateString2,2019-02-27T07:40:39.227Z,,,,,2019-02-27T07:36:13.030Z,Edm.String,false,Edm.Boolean,the error msg,Edm.String
+Attempt,stateString3,2019-02-27T07:44:11.100Z,,,,,,,,,,

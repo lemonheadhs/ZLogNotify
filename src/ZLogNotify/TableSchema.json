@@ -1,0 +1,32 @@
+{
+    "ZLAuthnAttempts": {
+        "AuthzCode": {
+            "Type": "String",
+            "Optional": true
+        },
+        "CodeExpired": {
+            "Type": "Boolean",
+            "Optional": true
+        },
+        "ReplyReceivedAt": {
+            "Type": "datetime",
+            "Optional": true
+        },
+        "SuccessAuthorized": {
+            "Type": "Boolean",
+            "Optional": true
+        },        
+        "Error": {
+            "Type": "String",
+            "Optional": true
+        }
+    },
+    "ZLTokens": {
+        "AccessToken": {
+            "Type": "String"
+        },
+        "RefreshToken": {
+            "Type": "String"
+        }
+    }
+}
