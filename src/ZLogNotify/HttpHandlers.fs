@@ -64,7 +64,7 @@ module Services =
                     async {
                         let! result =
                             Azure.Tables.ZLTokens.Query()
-                                .``Where Partition Key Is``.``Equal To``("ZohoToknes")
+                                .``Where Partition Key Is``.``Equal To``("ZohoTokens")
                                 .ExecuteAsync(1, connStr)
                         return Seq.tryHead result
                     }
@@ -74,7 +74,7 @@ module Services =
                             (pole - DateTimeOffset.Now.UtcTicks).ToString().PadLeft(16, '0')
                         let! tokenResults =
                             Azure.Tables.ZLTokens.Query()
-                                .``Where Partition Key Is``.``Equal To``("ZohoToknes")
+                                .``Where Partition Key Is``.``Equal To``("ZohoTokens")
                                 .``Where Row Key Is``.``Less Than``(validPoint)
                                 .ExecuteAsync(1, connStr)
                         return Seq.tryHead tokenResults
@@ -107,9 +107,9 @@ module HttpHandlers =
     let prepareLoginRedirect (store: IAuthnAttemptStore) (zhClient: ZohoClient) =
         task {
             let state = DateTime.Now.Ticks.ToString("x")
+            let! baseStr = zhClient.GetLoginLinkUriAsync(state)
             let uri = 
-                sprintf "%s&access_type=offline&prompt=none"
-                        (zhClient.GetLoginLinkUri(state))
+                sprintf "%s&access_type=offline&prompt=none" baseStr
             do! store.InsertAttempt state
             return redirectTo false uri
         }
@@ -128,15 +128,21 @@ module HttpHandlers =
                         prepareLoginRedirect authnAttpStore zhClient
                     | Some tokens ->
                         let expired =
-                            tokens.RowKey |> Convert.ToInt64
-                            |> (>) (pole - DateTimeOffset.Now.UtcTicks)
+                            (tokens.RowKey |> Convert.ToInt64) > (pole - DateTimeOffset.Now.UtcTicks)
                         
                         if expired then
                             task {
                                 try
-                                    zhClient.GetCurrentToken (tokens.RefreshToken, true) |> ignore
+                                    let! accessToken = zhClient.GetCurrentTokenAsync (tokens.RefreshToken, true)
                                     do! (
-                                        { AccessToken = zhClient.AccessToken; RefreshToken = zhClient.RefreshToken } 
+                                        { 
+                                            AccessToken = zhClient.AccessToken; 
+                                            RefreshToken = 
+                                                String.IsNullOrEmpty zhClient.RefreshToken
+                                                |> function
+                                                | true -> tokens.RefreshToken
+                                                | false -> zhClient.RefreshToken
+                                        } 
                                         |> asSnd DateTimeOffset.Now
                                         |> tokensStore.Insert)
                                     return! yieldOk
@@ -168,8 +174,10 @@ module HttpHandlers =
         let nvc = NameValueCollection()
         nvc.Add("code", payload.Code)
         nvc.Add("state", payload.State)
-        zohoClient.GetToken nvc |> ignore
-        { AccessToken = zohoClient.AccessToken; RefreshToken = zohoClient.RefreshToken }
+        task {
+            let! tokenStr = zohoClient.GetTokenAsync nvc
+            return { AccessToken = zohoClient.AccessToken; RefreshToken = zohoClient.RefreshToken }
+        }
 
 
     let receiveAuthzCode (payload: AuthzCode) =
@@ -199,7 +207,7 @@ module HttpHandlers =
                             do! store.UpdateWithCode(payload.State, success)
                             
                             if not expired then
-                                let tokens = exchangeForToken zohoClient payload
+                                let! tokens = exchangeForToken zohoClient payload
                                 do! tokenStore.Insert (tReplied, tokens)
                                 return OK "ZLogNotify gets authorized"
                             else

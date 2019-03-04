@@ -8,8 +8,16 @@ nuget Microsoft.AspNetCore.App 2.2.0
 nuget Giraffe
 nuget Microsoft.NET.Test.Sdk
 nuget Microsoft.AspNetCore.TestHost
-nuget OAuth2
+nuget OAuth2 prerelease
 nuget System.ComponentModel
 nuget System.Configuration
 nuget xunit
 nuget xunit.runner.visualstudio
+
+group scripts
+    source https://api.nuget.org/v3/index.json
+    framework: net472
+    nuget FSharp.Azure.StorageTypeProvider
+    nuget FSharp.Data
+
+

@@ -975,12 +975,12 @@ NUGET
       System.Threading.Timer (>= 4.3) - restriction: || (&& (< net45) (>= netstandard1.2) (< netstandard1.3) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.3) (< netstandard1.4) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.4) (< netstandard1.5) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.5) (< netstandard1.6) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.6) (< netstandard2.0) (< win8) (< wpa81)) (&& (>= uap10.0) (< uap10.1))
       System.Xml.ReaderWriter (>= 4.3) - restriction: || (&& (< net45) (>= netstandard1.1) (< netstandard1.2) (< win8)) (&& (< net45) (>= netstandard1.2) (< netstandard1.3) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.3) (< netstandard1.4) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.4) (< netstandard1.5) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.5) (< netstandard1.6) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.6) (< netstandard2.0) (< win8) (< wpa81)) (&& (>= net46) (< netstandard1.4)) (&& (>= netstandard1.0) (< portable-net45+win8+wpa81) (< wp8)) (&& (>= uap10.0) (< uap10.1))
       System.Xml.XDocument (>= 4.3) - restriction: || (&& (< net45) (>= netstandard1.1) (< netstandard1.2) (< win8)) (&& (< net45) (>= netstandard1.2) (< netstandard1.3) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.3) (< netstandard1.4) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.4) (< netstandard1.5) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.5) (< netstandard1.6) (< win8) (< wpa81)) (&& (< net45) (>= netstandard1.6) (< netstandard2.0) (< win8) (< wpa81)) (&& (>= netstandard1.0) (< portable-net45+win8+wpa81) (< wp8)) (&& (>= uap10.0) (< uap10.1))
-    Newtonsoft.Json (12.0.1)
+    Newtonsoft.Json (12.0.1) - restriction: || (>= net45) (>= netcoreapp1.0) (&& (>= netstandard1.0) (< netstandard1.3) (< win8)) (&& (< netstandard1.0) (>= win8)) (&& (>= netstandard1.3) (< win8)) (>= netstandard2.0) (>= wp8) (>= wpa81)
     Newtonsoft.Json.Bson (1.0.2) - restriction: >= netcoreapp2.2
       Newtonsoft.Json (>= 12.0.1) - restriction: || (>= net45) (>= netstandard1.3)
-    OAuth2 (0.8.40)
-      Newtonsoft.Json (>= 7.0.1)
-      RestSharp (>= 105.2.3)
+    OAuth2 (0.9.13-pre)
+      Newtonsoft.Json (>= 11.0.2) - restriction: >= netstandard2.0
+      RestSharp (>= 106.5.4) - restriction: >= netstandard2.0
     Remotion.Linq (2.2) - restriction: >= netcoreapp2.2
       System.Collections (>= 4.0.11) - restriction: && (< net35) (>= netstandard1.0)
       System.Diagnostics.Debug (>= 4.0.11) - restriction: && (< net35) (>= netstandard1.0)
@@ -993,7 +993,7 @@ NUGET
       System.Runtime (>= 4.1) - restriction: && (< net35) (>= netstandard1.0)
       System.Runtime.Extensions (>= 4.1) - restriction: && (< net35) (>= netstandard1.0)
       System.Threading (>= 4.0.11) - restriction: && (< net35) (>= netstandard1.0)
-    RestSharp (106.6.9)
+    RestSharp (106.6.9) - restriction: >= netstandard2.0
     runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3.3) - restriction: || (&& (< monoandroid) (< net45) (< netstandard1.2) (>= netstandard2.0) (< win8)) (&& (< monoandroid) (< net45) (< netstandard1.3) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< monoandroid) (< net45) (< netstandard1.4) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< monoandroid) (< net45) (< netstandard1.5) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< monoandroid) (< net45) (< netstandard1.6) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< net45) (>= net46) (< netstandard1.4) (>= netstandard2.0)) (&& (< net45) (>= net461) (< netstandard1.2) (>= netstandard1.6)) (&& (< net45) (>= net461) (< netstandard1.3) (>= netstandard1.6)) (&& (< net45) (>= net461) (< netstandard1.4) (>= netstandard1.6)) (&& (< net45) (>= net461) (< netstandard1.5) (>= netstandard1.6)) (&& (< net45) (>= net461) (>= netstandard1.6) (< netstandard2.0)) (&& (>= net461) (>= netstandard1.6) (>= uap10.0)) (&& (>= netstandard2.0) (>= uap10.0))
     runtime.debian.9-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3.3) - restriction: || (&& (< monoandroid) (< net45) (< netstandard1.2) (>= netstandard2.0) (< win8)) (&& (< monoandroid) (< net45) (< netstandard1.3) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< monoandroid) (< net45) (< netstandard1.4) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< monoandroid) (< net45) (< netstandard1.5) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< monoandroid) (< net45) (< netstandard1.6) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< net45) (>= net46) (< netstandard1.4) (>= netstandard2.0)) (&& (< net45) (>= net461) (< netstandard1.2) (>= netstandard1.6)) (&& (< net45) (>= net461) (< netstandard1.3) (>= netstandard1.6)) (&& (< net45) (>= net461) (< netstandard1.4) (>= netstandard1.6)) (&& (< net45) (>= net461) (< netstandard1.5) (>= netstandard1.6)) (&& (< net45) (>= net461) (>= netstandard1.6) (< netstandard2.0)) (&& (>= net461) (>= netstandard1.6) (>= uap10.0)) (&& (>= netstandard2.0) (>= uap10.0))
     runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl (4.3.3) - restriction: || (&& (< monoandroid) (< net45) (< netstandard1.2) (>= netstandard2.0) (< win8)) (&& (< monoandroid) (< net45) (< netstandard1.3) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< monoandroid) (< net45) (< netstandard1.4) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< monoandroid) (< net45) (< netstandard1.5) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< monoandroid) (< net45) (< netstandard1.6) (>= netstandard2.0) (< win8) (< wpa81)) (&& (< net45) (>= net46) (< netstandard1.4) (>= netstandard2.0)) (&& (< net45) (>= net461) (< netstandard1.2) (>= netstandard1.6)) (&& (< net45) (>= net461) (< netstandard1.3) (>= netstandard1.6)) (&& (< net45) (>= net461) (< netstandard1.4) (>= netstandard1.6)) (&& (< net45) (>= net461) (< netstandard1.5) (>= netstandard1.6)) (&& (< net45) (>= net461) (>= netstandard1.6) (< netstandard2.0)) (&& (>= net461) (>= netstandard1.6) (>= uap10.0)) (&& (>= netstandard2.0) (>= uap10.0))
@@ -1610,3 +1610,20 @@ NUGET
       xunit.extensibility.core (2.4.1) - restriction: >= netstandard1.1
     xunit.runner.visualstudio (2.4.1)
       Microsoft.NET.Test.Sdk (>= 15.0) - restriction: >= netcoreapp1.0
+
+GROUP scripts
+RESTRICTION: == net472
+NUGET
+  remote: https://api.nuget.org/v3/index.json
+    FSharp.Azure.StorageTypeProvider (2.0.1)
+      FSharp.Compiler.Tools (>= 10.2.1)
+      WindowsAzure.Storage (>= 9.3.2)
+    FSharp.Compiler.Tools (10.2.1)
+    FSharp.Core (4.6.2)
+    FSharp.Data (3.0)
+      FSharp.Core (>= 4.0.0.1)
+    Microsoft.Azure.KeyVault.Core (3.0.3)
+    Newtonsoft.Json (12.0.1)
+    WindowsAzure.Storage (9.3.3)
+      Microsoft.Azure.KeyVault.Core (>= 1.0)
+      Newtonsoft.Json (>= 10.0.2)

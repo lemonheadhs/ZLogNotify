@@ -22,12 +22,19 @@ module Zoho =
         let zcc = configOption.Value
         {new IClientConfiguration with
             member this.ClientTypeName = zcc.ClientTypeName
+            member this.set_ClientTypeName(value) = ()
             member this.IsEnabled = zcc.IsEnabled
+            member this.set_IsEnabled(value) = ()
             member this.ClientId = zcc.ClientId
+            member this.set_ClientId(value) = ()
             member this.ClientSecret = zcc.ClientSecret
+            member this.set_ClientSecret(value) = ()
             member this.ClientPublic = zcc.ClientPublic
+            member this.set_ClientPublic(value) = ()
             member this.Scope = zcc.Scope
-            member this.RedirectUri = zcc.RedirectUri}
+            member this.set_Scope(value) = ()
+            member this.RedirectUri = zcc.RedirectUri
+            member this.set_RedirectUri(value) = ()}
 
     type ZohoClient (factory: IRequestFactory, configOption: IOptionsSnapshot<ZohoClientConfig>) = 
         inherit OAuth2Client(factory, configOption |> toClientCfg)

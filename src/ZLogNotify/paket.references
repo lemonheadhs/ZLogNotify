@@ -1,8 +1,8 @@
 Microsoft.AspNetCore.App
 Giraffe
-OAuth2
 System.Configuration
 FSharp.Azure.StorageTypeProvider
 FSharp.Data
 Giraffe.GoodRead
 System.ComponentModel
+OAuth2
