@@ -1,0 +1,2 @@
+PartitionKey,RowKey,Timestamp,Name,Name@type
+Project,id,2019-03-05T08:10:06.840Z,12 34,Edm.String

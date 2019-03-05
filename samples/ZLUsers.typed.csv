@@ -1,0 +1,2 @@
+PartitionKey,RowKey,Timestamp,Email,Email@type,Name,Name@type
+User,id,2019-03-05T07:02:36.837Z,email,Edm.String,name,Edm.String

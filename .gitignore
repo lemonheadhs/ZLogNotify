@@ -12,6 +12,10 @@
 samples/*
 !samples/ZLAuthnAttemps.typed.csv
 !samples/ZLTokens.typed.csv
+!samples/ZLProjects.typed.csv
+!samples/ZLReportConfig.typed.csv
+!samples/ZLUsers.typed.csv
+!samples/PubProfileSample.json
 src/ZLogNotify/appsettings.Development.json
 zipTemp/
 my.azureauth

@@ -2,6 +2,7 @@
 
 open System
 open FSharp.Azure.StorageTypeProvider
+open FSharp.Data
 
 System.Environment.CurrentDirectory <- __SOURCE_DIRECTORY__
 
@@ -19,3 +20,12 @@ Local.Tables.ZLTokens.Query()
     .Execute(1)
 
 3417699477254277L > (pole - DateTimeOffset.Now.UtcTicks)
+
+type ProjLogs = JsonProvider<"./samples/projectLogsSample.json", ResolutionFolder = __SOURCE_DIRECTORY__>
+
+let logs = ProjLogs.GetSample()
+
+let fst = logs.Timelogs.Date.[0]
+
+fst.Tasklogs.[0]
+

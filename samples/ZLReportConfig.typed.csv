@@ -1,0 +1,2 @@
+PartitionKey,RowKey,Timestamp,ActiveProjects,ActiveProjects@type,MainReporterEmail,MainReporterEmail@type,Users,Users@type
+ReportConfig,01,2019-03-05T09:35:59.337Z,"12,34,56",Edm.String,one@email.com,Edm.String,"12,34,56",Edm.String
